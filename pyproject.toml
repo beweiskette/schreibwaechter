@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "schreibwaechter"
 version = "0.2.1"
-description = "Deterministic linter for German prose written by AI agents, with de-CH and de-DE modes and Stop hooks for Claude Code and Codex"
+description = "Schreibwächter: deterministic linter for German prose written by AI agents, with de-CH and de-DE modes and Stop hooks for Claude Code and Codex"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]

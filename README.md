@@ -1,6 +1,9 @@
-# schreibwaechter
+# Schreibwächter
 
 [Deutsche Fassung](README.de.md)
+
+The command, package and repository are spelled `schreibwaechter`, because
+GitHub, PyPI and shell commands allow no umlauts.
 
 A deterministic linter for German prose written by AI agents. It knows two
 locales: Swiss German (`de-CH`: `ss` instead of `ß`, «guillemets») and

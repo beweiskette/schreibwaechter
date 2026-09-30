@@ -1,6 +1,9 @@
-# schreibwaechter
+# Schreibwächter
 
 [English version](README.md)
+
+Befehl, Paket und Repository heissen `schreibwaechter`, weil GitHub, PyPI
+und Befehle im Terminal keine Umlaute erlauben.
 
 Ein deterministischer Linter für deutsche Texte, die KI-Agenten schreiben. Er
 kennt zwei Varianten: Schweizer Hochdeutsch (`de-CH`, also `ss` statt Eszett
