@@ -1,0 +1,26 @@
+#!/bin/sh
+# Git pre-commit hook: lint staged Markdown and text files with schreibwaechter.
+# Install: copy to .git/hooks/pre-commit and make it executable
+# (chmod +x .git/hooks/pre-commit). Git for Windows runs it with its own sh.
+#
+# The staged content is checked, not the working tree copy. Files that are
+# not detected as German are skipped (--only-german), so English
+# documentation in the same repository does not fail the commit.
+
+git diff --cached --name-only --diff-filter=ACMR -- \
+    '*.md' '*.markdown' '*.mdx' '*.txt' |
+{
+    status=0
+    while IFS= read -r file; do
+        git show ":$file" |
+            schreibwaechter check - --stdin-name "$file" --only-german --quiet ||
+            status=1
+    done
+    exit $status
+}
+status=$?
+
+if [ "$status" -ne 0 ]; then
+    echo "schreibwaechter: fix the findings above or commit with --no-verify." >&2
+fi
+exit $status

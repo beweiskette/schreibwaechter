@@ -1,0 +1,6 @@
+- id: schreibwaechter
+  name: schreibwaechter
+  description: Lint German prose for AI writing patterns (de-CH and de-DE)
+  entry: schreibwaechter check --only-german
+  language: python
+  types_or: [markdown, text]

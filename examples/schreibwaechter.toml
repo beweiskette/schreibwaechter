@@ -1,0 +1,32 @@
+# Copy this file to .schreibwaechter.toml in your project root.
+# schreibwaechter looks for it in the current directory and all parent
+# directories. SCHREIBWAECHTER_CONFIG=/path/to/file overrides the search.
+
+# "de-CH" (ss, «…») or "de-DE" (ß allowed, „…“)
+locale = "de-CH"
+
+# Language of the messages: "de" or "en"
+lang = "de"
+
+# true: warnings also make `check` exit with 1 and make the hook block
+strict = false
+
+# Switch rules off completely
+disable = []
+
+# Or run only these rules (leave out to run all)
+# enable = ["dash", "eszett", "quotes-mixed"]
+
+# Change the severity of a rule
+[severity]
+# floskel = "error"
+
+[words]
+# Extra phrases, written as plain text (case-insensitive, any whitespace)
+floskeln = []
+anglicisms = []
+# Extra JSON lists in the same format as the bundled ones, relative to this file
+floskeln_files = []
+anglicisms_files = []
+# Entry ids or exact phrases to skip, e.g. "nahtlos" or "fuellwort-verbindung"
+ignore = []

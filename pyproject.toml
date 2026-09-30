@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "schreibwaechter"
+version = "0.1.0"
+description = "Deterministic linter for German prose written by AI agents, with de-CH and de-DE modes and Stop hooks for Claude Code and Codex"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{ name = "beweiskette" }]
+keywords = ["linter", "german", "swiss", "prose", "ai", "claude-code", "codex", "hooks"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Natural Language :: German",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+schreibwaechter = "schreibwaechter.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+schreibwaechter = ["data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

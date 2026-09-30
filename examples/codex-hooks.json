@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "schreibwaechter hook codex --locale de-CH",
+            "timeout": 3
+          }
+        ]
+      }
+    ]
+  }
+}

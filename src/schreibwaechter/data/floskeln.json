@@ -1,0 +1,286 @@
+{
+  "version": 1,
+  "description": "Stock phrases and inflated wording that often mark AI-written German. Patterns are case-insensitive regular expressions, matched against the text with ß written as ss. A literal space matches any run of whitespace. Word boundaries are added automatically.",
+  "entries": [
+    {
+      "id": "wichtig-zu-beachten",
+      "category": "editorial",
+      "pattern": "es ist (?:\\w+ )?wichtig,? (?:zu )?(?:beachten|betonen|erwähnen|bemerken|verstehen|berücksichtigen|wissen)",
+      "hint_de": "Den Punkt direkt nennen, ohne Ankündigung.",
+      "hint_en": "State the point directly instead of announcing it."
+    },
+    {
+      "id": "erwaehnenswert",
+      "category": "editorial",
+      "pattern": "es ist (?:\\w+ )?(?:erwähnenswert|bemerkenswert|hervorzuheben|festzuhalten)|bemerkenswerterweise|interessanterweise",
+      "hint_de": "Streichen und die Aussage selbst stehen lassen.",
+      "hint_en": "Delete it and let the statement stand on its own."
+    },
+    {
+      "id": "sei-hingewiesen",
+      "category": "editorial",
+      "pattern": "es sei (?:\\w+ )?(?:darauf )?hingewiesen|es sollte (?:\\w+ )?(?:beachtet|erwähnt|betont) werden",
+      "hint_de": "Direkt sagen, worum es geht.",
+      "hint_en": "Say directly what it is about."
+    },
+    {
+      "id": "entscheidende-rolle",
+      "category": "significance",
+      "pattern": "(?:entscheidende|zentrale|wesentliche|tragende|bedeutende|massgebliche|herausragende|wichtige) Rolle|Schlüssel-?rolle",
+      "hint_de": "Sagen, was die Sache konkret bewirkt.",
+      "hint_en": "Say what the thing actually does."
+    },
+    {
+      "id": "von-bedeutung",
+      "category": "significance",
+      "pattern": "von (?:entscheidender|zentraler|grundlegender|immenser|enormer|herausragender|essenzieller|essentieller|elementarer) Bedeutung",
+      "hint_de": "Begründen statt behaupten, oder «wichtig» schreiben.",
+      "hint_en": "Give the reason instead of asserting importance."
+    },
+    {
+      "id": "heutige-welt",
+      "category": "significance",
+      "pattern": "in (?:der|unserer) heutigen (?:\\w+ )?(?:Welt|Zeit|Gesellschaft|Ära)|in einer (?:zunehmend |immer )?(?:\\w+ )?(?:digitalen|vernetzten|globalisierten|komplexen|schnelllebigen) Welt|in einer Welt, in der",
+      "hint_de": "Einstieg streichen und mit der Sache beginnen.",
+      "hint_en": "Drop the opener and start with the subject."
+    },
+    {
+      "id": "meilenstein",
+      "category": "significance",
+      "pattern": "Meilenstein\\w*",
+      "hint_de": "Genau sagen, was erreicht wurde.",
+      "hint_en": "Say exactly what was achieved."
+    },
+    {
+      "id": "wendepunkt",
+      "category": "significance",
+      "pattern": "Wendepunkt\\w*|Schlüsselmoment\\w*",
+      "hint_de": "Beschreiben, was sich geändert hat.",
+      "hint_en": "Describe what changed."
+    },
+    {
+      "id": "zeugnis",
+      "category": "significance",
+      "pattern": "(?:steht|dient) als (?:\\w+ )?Zeugnis|ein (?:\\w+ )?Zeugnis (?:für|von|dafür)",
+      "hint_de": "Den Beleg direkt nennen.",
+      "hint_en": "Name the evidence directly."
+    },
+    {
+      "id": "unterstreicht-bedeutung",
+      "category": "significance",
+      "pattern": "unterstreich\\w* (?:\\w+ ){0,3}?(?:Bedeutung|Wichtigkeit|Rolle|Relevanz|Notwendigkeit)",
+      "hint_de": "Streichen oder die Folge konkret nennen.",
+      "hint_en": "Delete it or name the concrete consequence."
+    },
+    {
+      "id": "tief-verwurzelt",
+      "category": "significance",
+      "pattern": "tief verwurzelt\\w*|unerschütterlich\\w*|tiefgreifend\\w*",
+      "hint_de": "Durch eine überprüfbare Angabe ersetzen.",
+      "hint_en": "Replace with something checkable."
+    },
+    {
+      "id": "nicht-zu-unterschaetzen",
+      "category": "significance",
+      "pattern": "nicht zu unterschätzen\\w*",
+      "hint_de": "Sagen, wie gross die Wirkung ist.",
+      "hint_en": "Say how large the effect is."
+    },
+    {
+      "id": "schluessel-zum-erfolg",
+      "category": "significance",
+      "pattern": "Schlüssel zum Erfolg|Dreh- und Angelpunkt|Herzstück\\w*|(?:Grund|Eck)pfeiler\\w*|(?:zentraler|wichtiger|entscheidender|wesentlicher) Baustein",
+      "hint_de": "Bildsprache weglassen und die Funktion nennen.",
+      "hint_en": "Drop the metaphor and name the function."
+    },
+    {
+      "id": "nahtlos",
+      "category": "promotional",
+      "pattern": "nahtlos\\w*",
+      "hint_de": "Sagen, was konkret ohne Zwischenschritt geht.",
+      "hint_en": "Say what concretely works without an extra step."
+    },
+    {
+      "id": "ganzheitlich",
+      "category": "promotional",
+      "pattern": "ganzheitlich\\w*",
+      "hint_de": "Aufzählen, was alles abgedeckt ist.",
+      "hint_en": "List what is actually covered."
+    },
+    {
+      "id": "massgeschneidert",
+      "category": "promotional",
+      "pattern": "massgeschneidert\\w*|Synergie\\w*|Mehrwert (?:schaffen|bieten|liefern|generieren)",
+      "hint_de": "Den konkreten Nutzen nennen.",
+      "hint_en": "Name the concrete benefit."
+    },
+    {
+      "id": "bahnbrechend",
+      "category": "promotional",
+      "pattern": "bahnbrechend\\w*|revolutionär\\w*|wegweisend\\w*|zukunftsweisend\\w*|Paradigmenwechsel\\w*|Game[- ]?Changer\\w*",
+      "hint_de": "Werbesprache streichen; Fakten nennen.",
+      "hint_en": "Remove the sales language; give facts."
+    },
+    {
+      "id": "neues-level",
+      "category": "promotional",
+      "pattern": "auf (?:ein neues|das nächste) (?:Level|Niveau)|auf die nächste Stufe (?:heben|bringen|gehoben|gebracht)|next level",
+      "hint_de": "Sagen, was genau besser wird.",
+      "hint_en": "Say what exactly improves."
+    },
+    {
+      "id": "potenzial-entfalten",
+      "category": "promotional",
+      "pattern": "entfessel\\w*|(?:\\w+ )?Potenzial (?:voll )?(?:entfalten|ausschöpfen|freisetzen)|Potential (?:voll )?(?:entfalten|ausschöpfen|freisetzen)",
+      "hint_de": "Den erwarteten Effekt konkret beschreiben.",
+      "hint_en": "Describe the expected effect concretely."
+    },
+    {
+      "id": "atemberaubend",
+      "category": "promotional",
+      "pattern": "atemberaubend\\w*|beeindruckend\\w* (?:\\w+ )?Schönheit|malerisch\\w*|pulsierend\\w*",
+      "hint_de": "Durch eine sachliche Beschreibung ersetzen.",
+      "hint_en": "Replace with a plain description."
+    },
+    {
+      "id": "reiches-erbe",
+      "category": "promotional",
+      "pattern": "reich\\w* (?:\\w+ )?Erbe\\w*|im Herzen (?:von|der|des)",
+      "hint_de": "Ort oder Geschichte nüchtern benennen.",
+      "hint_en": "Name the place or history plainly."
+    },
+    {
+      "id": "facettenreich",
+      "category": "promotional",
+      "pattern": "facettenreich\\w*|vielschichtig\\w*",
+      "hint_de": "Die einzelnen Seiten nennen statt sie zu behaupten.",
+      "hint_en": "Name the aspects instead of claiming there are many."
+    },
+    {
+      "id": "geflecht",
+      "category": "metaphor",
+      "pattern": "(?:Geflecht|Mosaik|Kaleidoskop|Wandteppich|Tapisserie|Symphonie|Sinfonie) (?:aus|von|der|des)",
+      "hint_de": "Metapher streichen und direkt beschreiben.",
+      "hint_en": "Drop the metaphor and describe directly."
+    },
+    {
+      "id": "landschaft",
+      "category": "metaphor",
+      "pattern": "(?:digitalen|technologischen|dynamischen|sich wandelnden|heutigen|modernen|komplexen) Landschaft",
+      "hint_de": "Den Bereich direkt benennen, etwa «Markt» oder «Branche».",
+      "hint_en": "Name the field directly, such as market or industry."
+    },
+    {
+      "id": "reise",
+      "category": "metaphor",
+      "pattern": "auf (?:dieser|unserer|deiner|Ihrer|eurer|seiner|ihrer) Reise|(?:spannende|aufregende|faszinierende) Reise",
+      "hint_de": "Den Vorgang beim Namen nennen.",
+      "hint_en": "Call the process by its name."
+    },
+    {
+      "id": "navigieren",
+      "category": "metaphor",
+      "pattern": "navigier\\w* (?:\\w+ ){0,2}?(?:Komplexität|Herausforderungen|Landschaft|Dschungel|Untiefen)",
+      "hint_de": "Sagen, was konkret zu tun ist.",
+      "hint_en": "Say what concretely has to be done."
+    },
+    {
+      "id": "faszinierende-welt",
+      "category": "metaphor",
+      "pattern": "(?:faszinierende|spannende|wunderbare) Welt (?:der|des|von)|Hand in Hand",
+      "hint_de": "Floskel streichen.",
+      "hint_en": "Delete the stock phrase."
+    },
+    {
+      "id": "eintauchen",
+      "category": "opener",
+      "pattern": "tauchen (?:wir|Sie) (?:\\w+ ){0,3}?ein|(?:lass|lasst|lassen Sie) uns (?:\\w+ ){0,4}?eintauchen|eintauchen in|tiefer eintauchen|Deep[- ]Dive",
+      "hint_de": "Ankündigung streichen und gleich anfangen.",
+      "hint_en": "Drop the announcement and just start."
+    },
+    {
+      "id": "stell-dir-vor",
+      "category": "opener",
+      "pattern": "Stell (?:dir|euch) vor|Stellen Sie sich vor",
+      "hint_de": "Mit der Sache selbst beginnen.",
+      "hint_en": "Begin with the subject itself."
+    },
+    {
+      "id": "zusammenfassend",
+      "category": "closing",
+      "pattern": "zusammenfassend(?: lässt sich (?:sagen|festhalten|feststellen)| kann man sagen)?|abschliessend (?:lässt sich|kann man) (?:sagen|festhalten|feststellen)|insgesamt lässt sich (?:sagen|festhalten|feststellen)|alles in allem",
+      "hint_de": "Schlusszusammenfassung weglassen; der Text ist gesagt.",
+      "hint_en": "Drop the closing summary; the text has already said it."
+    },
+    {
+      "id": "fazit-ueberschrift",
+      "category": "closing",
+      "pattern": "^[ \\t]{0,3}(?:#{1,6}[ \\t]*)?(?:\\*\\*|__)?(?:Fazit|Schlussfolgerung(?:en)?|Schlussgedanken)(?:\\*\\*|__)?[ \\t]*:?(?:\\*\\*|__)?|\\*\\*Fazit:?\\*\\*",
+      "hint_de": "Kein Fazit-Abschnitt; das Wichtigste gehört an den Anfang.",
+      "hint_en": "No conclusion section; put the key point first."
+    },
+    {
+      "id": "herausforderungen-chancen",
+      "category": "closing",
+      "pattern": "Herausforderungen und (?:Chancen|Möglichkeiten)|Chancen und Herausforderungen|trotz (?:aller |dieser |einiger )?Herausforderungen",
+      "hint_de": "Konkrete Probleme und Möglichkeiten einzeln nennen.",
+      "hint_en": "Name the concrete problems and options one by one."
+    },
+    {
+      "id": "vage-quelle",
+      "category": "attribution",
+      "pattern": "Experten (?:sind sich einig|betonen|argumentieren|warnen)|Expertenmeinungen zufolge|Kritiker argumentieren|Branchenberichte\\w*|Beobachter (?:sehen|betonen|zitieren|verweisen)|Studien (?:zeigen|belegen), dass",
+      "hint_de": "Quelle nennen oder die Aussage weglassen.",
+      "hint_en": "Name the source or drop the claim."
+    },
+    {
+      "id": "fuellwort-verbindung",
+      "category": "connector",
+      "pattern": "darüber hinaus|des Weiteren|nichtsdestotrotz",
+      "hint_de": "Meist ersatzlos streichbar; sonst «auch» oder «zudem».",
+      "hint_en": "Usually safe to delete; otherwise use a plain connector."
+    },
+    {
+      "id": "mehr-als-nur",
+      "category": "significance",
+      "pattern": "mehr als nur (?:ein|eine|einen|ein paar)",
+      "hint_de": "Sagen, was es ist, statt was es übertrifft.",
+      "hint_en": "Say what it is, not what it exceeds."
+    },
+    {
+      "id": "chat-hoffe-hilft",
+      "category": "chat-residue",
+      "pattern": "Ich hoffe,? (?:das|dies|es|diese \\w+) (?:hilft|hat geholfen|war hilfreich|ist hilfreich)",
+      "hint_de": "Chat-Floskel streichen.",
+      "hint_en": "Remove the chat pleasantry."
+    },
+    {
+      "id": "chat-lass-wissen",
+      "category": "chat-residue",
+      "pattern": "(?:Lass|Lasst|Lassen Sie) (?:mich|es mich) (?:gerne |einfach )?wissen|Zöger(?:e|n Sie) nicht",
+      "hint_de": "Chat-Floskel streichen.",
+      "hint_en": "Remove the chat pleasantry."
+    },
+    {
+      "id": "chat-gute-frage",
+      "category": "chat-residue",
+      "pattern": "(?:sehr |eine |das ist eine )?(?:grossartige|ausgezeichnete|hervorragende|spannende|tolle) Frage",
+      "hint_de": "Lob der Frage streichen und direkt antworten.",
+      "hint_en": "Skip praising the question and answer it."
+    },
+    {
+      "id": "chat-gerne-helfe",
+      "category": "chat-residue",
+      "pattern": "Gerne helfe ich|Ich helfe (?:dir|Ihnen|euch) gerne",
+      "hint_de": "Chat-Floskel streichen.",
+      "hint_en": "Remove the chat pleasantry."
+    },
+    {
+      "id": "chat-wissensstand",
+      "category": "chat-residue",
+      "pattern": "(?:bis zu|Stand) meine[sm]? (?:letzten )?(?:Wissens\\w*|Trainings\\w*|Update\\w*)|Als (?:KI|künstliche Intelligenz|KI-Sprachmodell|Sprachmodell)",
+      "hint_de": "Hinweise auf das Modell selbst entfernen.",
+      "hint_en": "Remove remarks about the model itself."
+    }
+  ]
+}

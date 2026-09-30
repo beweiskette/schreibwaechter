@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "description": "Literal translations from English and anglicisms that read as translated German. Same pattern format as floskeln.json.",
+  "entries": [
+    {
+      "id": "sinn-machen",
+      "pattern": "Sinn mach\\w*|mach(?:t|en|te|ten|st|e)? (?:\\w+ ){0,3}?Sinn",
+      "hint_de": "«Sinn ergeben» oder «sinnvoll sein».",
+      "hint_en": "Use «Sinn ergeben» or «sinnvoll sein» (from «to make sense»)."
+    },
+    {
+      "id": "in-jahreszahl",
+      "pattern": "in (?:19|20)\\d\\d",
+      "hint_de": "«im Jahr 2026» oder nur «2026».",
+      "hint_en": "Use «im Jahr 2026» or just «2026» (from «in 2026»)."
+    },
+    {
+      "id": "am-ende-des-tages",
+      "pattern": "(?:am|zum) Ende des Tages",
+      "hint_de": "«letztlich» oder «schliesslich».",
+      "hint_en": "Use «letztlich» (from «at the end of the day»)."
+    },
+    {
+      "id": "unterschied-machen",
+      "pattern": "(?:einen|den) (?:\\w+ )?Unterschied mach\\w*|mach(?:t|en|te|ten|st|e)? (?:\\w+ ){0,2}?(?:einen|den) (?:\\w+ )?Unterschied(?! zwischen)",
+      "hint_de": "«etwas bewirken», «sich auswirken» oder «entscheidend sein».",
+      "hint_en": "Use «etwas bewirken» (from «to make a difference»)."
+    },
+    {
+      "id": "realisieren-bemerken",
+      "pattern": "realisier\\w*,? dass|(?:habe|hat|haben|hatte) (?:\\w+ )?realisiert, dass",
+      "hint_de": "«merken», «erkennen» oder «bemerken».",
+      "hint_en": "Use «merken» or «erkennen» (from «to realize»)."
+    },
+    {
+      "id": "nicht-wirklich",
+      "pattern": "nicht wirklich",
+      "hint_de": "«kaum», «eigentlich nicht» oder «nicht ganz».",
+      "hint_en": "Use «kaum» or «eigentlich nicht» (from «not really»)."
+    },
+    {
+      "id": "bis-zu-dir",
+      "pattern": "(?:ist|liegt) bis zu (?:dir|Ihnen|euch|uns|ihm|ihr)",
+      "hint_de": "«liegt an dir» oder «ist deine Entscheidung».",
+      "hint_en": "Use «liegt an dir» (from «it is up to you»)."
+    },
+    {
+      "id": "adressieren",
+      "pattern": "(?:Probleme?|Fragen?|Themen?|Herausforderungen?|Bedenken|Anliegen|Punkte?|Risiken|Schwachstellen?|Bedürfnisse) (?:\\w+ )?(?:zu )?adressier\\w*",
+      "hint_de": "«angehen», «ansprechen» oder «behandeln».",
+      "hint_en": "Use «angehen» or «ansprechen» (from «to address»)."
+    },
+    {
+      "id": "basierend-auf",
+      "pattern": "basierend auf",
+      "hint_de": "«gestützt auf», «anhand» oder «aufgrund».",
+      "hint_en": "Use «gestützt auf» or «anhand» (from «based on»)."
+    },
+    {
+      "id": "ultimativ",
+      "pattern": "ultimativ\\w*",
+      "hint_de": "«letztlich», «endgültig» oder streichen.",
+      "hint_en": "Use «letztlich» or delete (from «ultimate»)."
+    },
+    {
+      "id": "in-der-tat",
+      "pattern": "in der Tat",
+      "hint_de": "Meist streichbar, sonst «tatsächlich».",
+      "hint_en": "Usually deletable (from «indeed»)."
+    },
+    {
+      "id": "einen-punkt-haben",
+      "pattern": "(?:hat|hast|haben|habe|hatte) (?:da |damit )?einen (?:guten |validen |berechtigten )?Punkt|valide[rn]? Punkt",
+      "hint_de": "«Da hast du recht» oder «ein berechtigter Einwand».",
+      "hint_en": "Use «Da hast du recht» (from «you have a point»)."
+    },
+    {
+      "id": "zur-selben-zeit",
+      "pattern": "zur (?:selben|gleichen) Zeit",
+      "hint_de": "«gleichzeitig».",
+      "hint_en": "Use «gleichzeitig» (from «at the same time»)."
+    },
+    {
+      "id": "fuer-eine-lange-zeit",
+      "pattern": "für eine (?:lange|längere|kurze) Zeit",
+      "hint_de": "«lange», «längere Zeit» oder «kurz».",
+      "hint_en": "Use «lange» (from «for a long time»)."
+    },
+    {
+      "id": "in-anderen-worten",
+      "pattern": "in anderen Worten",
+      "hint_de": "«mit anderen Worten» oder «anders gesagt».",
+      "hint_en": "Use «mit anderen Worten» (from «in other words»)."
+    },
+    {
+      "id": "erinnern-ohne-sich",
+      "pattern": "(?:ich|wir) erinner(?:e|n|te|ten) (?:das|den|die|es)",
+      "hint_de": "«sich an etwas erinnern».",
+      "hint_en": "Use «sich an etwas erinnern» (from «I remember it»)."
+    },
+    {
+      "id": "business-anglizismen",
+      "pattern": "Learnings|Insights|Mindset|Takeaways?",
+      "hint_de": "«Erkenntnisse», «Einsichten», «Haltung».",
+      "hint_en": "Prefer the German word, such as «Erkenntnisse»."
+    }
+  ]
+}
