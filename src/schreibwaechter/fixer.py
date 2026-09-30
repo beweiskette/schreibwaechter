@@ -1,4 +1,5 @@
-"""Safe mechanical fixes: ß to ss in de-CH, and quotation mark style.
+"""Safe mechanical fixes: ß to ss in de-CH, ae/oe/ue to umlauts in known stems,
+and quotation mark style.
 
 Dashes, phrases and everything else need a rewritten sentence, so they are
 never touched here.
@@ -12,18 +13,20 @@ from . import quotes as q
 from .config import Config
 from .directives import Directives
 from .prose import LineIndex, mask_text
+from .rules import _WORD, restore_umlauts
 
 
 @dataclass
 class FixResult:
     text: str
     eszett: int = 0
+    umlaut: int = 0
     quotes: int = 0
     notes: list[str] = field(default_factory=list)
 
     @property
     def changed(self) -> int:
-        return self.eszett + self.quotes
+        return self.eszett + self.umlaut + self.quotes
 
 
 def fix_text(text: str, config: Config | None = None) -> FixResult:
@@ -45,6 +48,27 @@ def fix_text(text: str, config: Config | None = None) -> FixResult:
             if char in "ßẞ" and allowed("eszett", offset):
                 replacements[offset] = "ss" if char == "ß" else "SS"
                 result.eszett += 1
+
+    if config.rule_active("umlaut"):
+        for match in _WORD.finditer(masked):
+            if not allowed("umlaut", match.start()):
+                continue
+            word = match.group(0)
+            fixed = restore_umlauts(word)
+            if not fixed:
+                continue
+            # Map the word onto its fixed form: each ae/oe/ue pair collapses to one char.
+            src, dst = match.start(), 0
+            while src < match.end():
+                if body[src] == fixed[dst]:
+                    replacements[src] = fixed[dst]
+                    src += 1
+                else:
+                    replacements[src] = fixed[dst]
+                    replacements[src + 1] = ""
+                    src += 2
+                dst += 1
+            result.umlaut += 1
 
     if config.rule_active("quotes") or config.rule_active("quotes-mixed"):
         found = q.scan(masked)

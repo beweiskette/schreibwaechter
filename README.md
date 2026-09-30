@@ -29,6 +29,7 @@ the same findings.
 |---|---|---|---|---|
 | `dash` | error | both | em dash `—`, en dash `–` with spaces, ` - ` and ` -- ` between words, `–` as list marker | no |
 | `eszett` | error | de-CH | `ß` and `ẞ` | yes |
+| `umlaut` | error | both | umlauts spelled out as `ae`, `oe`, `ue` (`fuer`, `koennen`, `Aenderung`) | yes |
 | `quotes` | warning | both | quotation marks in the wrong style (`"…"`, `“…”`, and „…“ in de-CH or «…» in de-DE) | yes |
 | `quotes-mixed` | error | both | more than one quotation mark style in one text | yes |
 | `floskel` | warning | both | stock phrases and inflated significance from a data file | no |
@@ -41,6 +42,13 @@ en dashes without spaces in ranges and connections (`2020–2024`, `8–10`,
 `Bern–Genf`), Swiss prices (`Fr. 20.–`), dashes in empty table cells,
 Markdown list markers, horizontal rules, and a dash character that is only
 mentioned, as in `(—)`.
+
+The `umlaut` rule works from a list of word stems in
+`src/schreibwaechter/data/umlaute.json` (`fuer`, `ueber`, `koenn`, `pruef` and
+about 150 more). Only words containing such a stem are flagged, so ordinary
+words with `ae`, `oe` or `ue` (`aktuell`, `Feuer`, `Israel`, `Poet`, `Queue`)
+stay untouched. Family names that really are spelled with `oe` or `ue` can be
+excluded with a disable comment.
 
 A rule-of-three check was left out because a deterministic version produced
 too many false positives.
@@ -77,7 +85,8 @@ warnings with `--strict`), and 2 for unreadable files or bad configuration.
 Directories are searched for `.md`, `.markdown`, `.mdx`, `.txt` and `.rst`.
 
 `fix` only does mechanical changes that cannot change the meaning: `ß` to
-`ss` in de-CH, and quotation marks to the locale style. Quotes are converted
+`ss` in de-CH, `ae`/`oe`/`ue` back to `ä`/`ö`/`ü` in known words, and
+quotation marks to the locale style. Quotes are converted
 only when every mark in the text has a partner. Dashes are never fixed
 automatically; the sentence has to be rewritten.
 
@@ -269,7 +278,7 @@ With the [pre-commit](https://pre-commit.com) framework:
 ```yaml
 repos:
   - repo: https://github.com/beweiskette/schreibwaechter
-    rev: v0.1.0
+    rev: v0.2.0
     hooks:
       - id: schreibwaechter
         args: [--locale, de-CH]

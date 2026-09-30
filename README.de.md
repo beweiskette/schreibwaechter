@@ -31,6 +31,7 @@ immer dieselben Befunde.
 |---|---|---|---|---|
 | `dash` | Fehler | beide | Geviertstrich `—`, Halbgeviertstrich `–` mit Leerzeichen, ` - ` und ` -- ` zwischen Wörtern, `–` als Aufzählungszeichen | nein |
 | `eszett` | Fehler | de-CH | `ß` und `ẞ` | ja |
+| `umlaut` | Fehler | beide | Umlaute als `ae`, `oe`, `ue` umschrieben (`fuer`, `koennen`, `Aenderung`) | ja |
 | `quotes` | Warnung | beide | Anführungszeichen im falschen Stil (`"…"`, `“…”`, in de-CH auch `„…“`, in de-DE auch `«…»`) | ja |
 | `quotes-mixed` | Fehler | beide | mehrere Stile von Anführungszeichen im selben Text | ja |
 | `floskel` | Warnung | beide | Floskeln und aufgeblähte Bedeutung aus einer Datendatei | nein |
@@ -43,6 +44,13 @@ Ausgang`), Bis-Striche ohne Leerzeichen in Spannen und Verbindungen
 (`2020–2024`, `8–10`, `Bern–Genf`), Frankenbeträge (`Fr. 20.–`), Striche in
 leeren Tabellenzellen, Markdown-Aufzählungen, Trennlinien und ein Strich,
 der nur als Zeichen erwähnt wird, etwa `(—)`.
+
+Die Regel `umlaut` arbeitet mit einer Liste von Wortstämmen in
+`src/schreibwaechter/data/umlaute.json` (`fuer`, `ueber`, `koenn`, `pruef` und
+rund 150 weitere). Gemeldet werden nur Wörter mit einem solchen Stamm.
+Gewöhnliche Wörter mit `ae`, `oe` oder `ue` wie `aktuell`, `Feuer`, `Israel`,
+`Poet` oder `Queue` bleiben unberührt. Familiennamen, die wirklich mit `oe` oder
+`ue` geschrieben werden, lassen sich mit einem Ausschalt-Kommentar ausnehmen.
 
 Eine Prüfung auf Dreierreihen gibt es nicht. Eine deterministische Fassung
 meldete zu viele Stellen, die in Ordnung waren.
@@ -80,7 +88,8 @@ Warnungen) und mit 2 bei unlesbaren Dateien oder falscher Konfiguration. In
 Ordnern werden `.md`, `.markdown`, `.mdx`, `.txt` und `.rst` gesucht.
 
 `fix` ändert nur, was den Sinn nicht verändern kann: Eszett zu `ss` in
-de-CH und Anführungszeichen in den Stil der Variante. Anführungszeichen
+de-CH, `ae`, `oe` und `ue` zurück zu `ä`, `ö` und `ü` in bekannten Wörtern
+und Anführungszeichen in den Stil der Variante. Anführungszeichen
 werden nur umgestellt, wenn jedes Zeichen im Text ein Gegenstück hat.
 Gedankenstriche korrigiert das Werkzeug nie selbst, weil der Satz neu
 gebaut werden muss.
@@ -284,7 +293,7 @@ Mit dem Werkzeug [pre-commit](https://pre-commit.com):
 ```yaml
 repos:
   - repo: https://github.com/beweiskette/schreibwaechter
-    rev: v0.1.0
+    rev: v0.2.0
     hooks:
       - id: schreibwaechter
         args: [--locale, de-CH]

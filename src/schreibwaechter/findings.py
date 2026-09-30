@@ -25,6 +25,8 @@ RULES: dict[str, RuleInfo] = {
         RuleInfo("dash", ERROR, "Gedankenstrich als Satzzeichen", "Dash used as punctuation"),
         RuleInfo("eszett", ERROR, "Eszett in Schweizer Text", "Eszett in Swiss text",
                  locales=("de-CH",), fixable=True),
+        RuleInfo("umlaut", ERROR, "Umlaut als ae, oe oder ue umschrieben",
+                 "Umlaut spelled out as ae, oe or ue", fixable=True),
         RuleInfo("quotes", WARNING, "Anführungszeichen im falschen Stil",
                  "Quotation marks in the wrong style", fixable=True),
         RuleInfo("quotes-mixed", ERROR, "Gemischte Anführungszeichen",

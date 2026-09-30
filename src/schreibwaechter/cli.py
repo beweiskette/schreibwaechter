@@ -157,7 +157,8 @@ def cmd_fix(args: argparse.Namespace) -> int:
                 handle.write(result.text)
         if result.changed:
             print(
-                f"{shown}: {result.eszett} ß -> ss, {result.quotes} quote pairs converted",
+                f"{shown}: {result.eszett} ß -> ss, {result.umlaut} words ae/oe/ue -> ä/ö/ü, "
+                f"{result.quotes} quote pairs converted",
                 file=sys.stderr,
             )
     return status

@@ -1,6 +1,6 @@
 """schreibwaechter: deterministic linter for German prose written by AI agents."""
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 from .config import Config  # noqa: E402
 from .fixer import fix_text  # noqa: E402

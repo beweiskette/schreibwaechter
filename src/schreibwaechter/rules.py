@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+import json
 import re
 from collections.abc import Callable, Iterator
+from importlib import resources
 from dataclasses import dataclass
 from functools import lru_cache
 
@@ -157,6 +159,66 @@ def rule_eszett(ctx: Context) -> Iterator[Hit]:
             f"Eszett in Swiss German: write «{fixed}» instead of «{word}».",
             fixed,
         )
+
+
+# --- 2b. ae/oe/ue written instead of ä/ö/ü ----------------------------------
+
+_UMLAUT_OF = {"ae": "ä", "oe": "ö", "ue": "ü", "Ae": "Ä", "Oe": "Ö", "Ue": "Ü",
+              "AE": "Ä", "OE": "Ö", "UE": "Ü"}
+_WORD = re.compile(r"[^\W\d_]+")
+
+
+@lru_cache(maxsize=1)
+def _umlaut_lists() -> tuple[tuple[str, ...], tuple[str, ...]]:
+    data = json.loads(
+        resources.files("schreibwaechter").joinpath("data", "umlaute.json").read_text("utf-8")
+    )
+    stems = tuple(sorted({s.lower() for s in data["stems"]}, key=len, reverse=True))
+    return stems, tuple(s.lower() for s in data.get("exceptions", []))
+
+
+def restore_umlauts(word: str) -> str | None:
+    """Return ``word`` with ae/oe/ue turned into umlauts inside known stems, or None."""
+    low = word.lower()
+    stems, exceptions = _umlaut_lists()
+    if any(e in low for e in exceptions):
+        return None
+    spans: list[tuple[int, int]] = []
+    for stem in stems:
+        start = low.find(stem)
+        while start != -1:
+            end = start + len(stem)
+            if not any(s < end and start < e for s, e in spans):
+                spans.append((start, end))
+            start = low.find(stem, start + 1)
+    if not spans:
+        return None
+    out: list[str] = []
+    i = 0
+    while i < len(word):
+        pair = word[i:i + 2]
+        inside = any(s <= i and i + 2 <= e for s, e in spans)
+        if inside and pair in _UMLAUT_OF:
+            out.append(_UMLAUT_OF[pair])
+            i += 2
+        else:
+            out.append(word[i])
+            i += 1
+    fixed = "".join(out)
+    return fixed if fixed != word else None
+
+
+def rule_umlaut(ctx: Context) -> Iterator[Hit]:
+    for match in _WORD.finditer(ctx.masked):
+        word = match.group(0)
+        fixed = restore_umlauts(word)
+        if fixed:
+            yield Hit(
+                "umlaut", match.start(), len(word),
+                f"Umlaut umschrieben: «{word}» wird «{fixed}» geschrieben.",
+                f"Umlaut spelled out: write «{fixed}» instead of «{word}».",
+                fixed,
+            )
 
 
 # --- 3. quotation marks ----------------------------------------------------
@@ -321,6 +383,7 @@ def rule_emoji(ctx: Context) -> Iterator[Hit]:
 RULE_FUNCTIONS: dict[str, Callable[[Context], Iterator[Hit]]] = {
     "dash": rule_dash,
     "eszett": rule_eszett,
+    "umlaut": rule_umlaut,
     "quotes": rule_quotes,
     "quotes-mixed": rule_quotes_mixed,
     "floskel": rule_floskel,
