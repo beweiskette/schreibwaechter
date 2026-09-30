@@ -58,3 +58,19 @@ def test_fix_respects_disable_directive():
     text = "<!-- schreibwaechter: disable umlaut -->\nfuer immer\n"
     result = fix_text(text, Config(locale="de-CH"))
     assert result.text == text
+
+
+@pytest.mark.parametrize("word, fixed", [
+    ("Gespraech", "Gespräch"),
+    ("tatsaechlich", "tatsächlich"),
+    ("verstaendlich", "verständlich"),
+    ("Empfaenger", "Empfänger"),
+    ("Menuepunkte", "Menüpunkte"),
+    ("gemaess", "gemäss"),
+])
+def test_restore_more(word, fixed):
+    assert restore_umlauts(word) == fixed
+
+
+def test_menuett_untouched():
+    assert restore_umlauts("Menuett") is None

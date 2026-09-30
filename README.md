@@ -45,7 +45,7 @@ mentioned, as in `(—)`.
 
 The `umlaut` rule works from a list of word stems in
 `src/schreibwaechter/data/umlaute.json` (`fuer`, `ueber`, `koenn`, `pruef` and
-about 150 more). Only words containing such a stem are flagged, so ordinary
+about 180 more). Only words containing such a stem are flagged, so ordinary
 words with `ae`, `oe` or `ue` (`aktuell`, `Feuer`, `Israel`, `Poet`, `Queue`)
 stay untouched. Family names that really are spelled with `oe` or `ue` can be
 excluded with a disable comment.
@@ -278,7 +278,7 @@ With the [pre-commit](https://pre-commit.com) framework:
 ```yaml
 repos:
   - repo: https://github.com/beweiskette/schreibwaechter
-    rev: v0.2.0
+    rev: v0.2.1
     hooks:
       - id: schreibwaechter
         args: [--locale, de-CH]

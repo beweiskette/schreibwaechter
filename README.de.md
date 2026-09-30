@@ -47,7 +47,7 @@ der nur als Zeichen erwähnt wird, etwa `(—)`.
 
 Die Regel `umlaut` arbeitet mit einer Liste von Wortstämmen in
 `src/schreibwaechter/data/umlaute.json` (`fuer`, `ueber`, `koenn`, `pruef` und
-rund 150 weitere). Gemeldet werden nur Wörter mit einem solchen Stamm.
+rund 180 weitere). Gemeldet werden nur Wörter mit einem solchen Stamm.
 Gewöhnliche Wörter mit `ae`, `oe` oder `ue` wie `aktuell`, `Feuer`, `Israel`,
 `Poet` oder `Queue` bleiben unberührt. Familiennamen, die wirklich mit `oe` oder
 `ue` geschrieben werden, lassen sich mit einem Ausschalt-Kommentar ausnehmen.
@@ -293,7 +293,7 @@ Mit dem Werkzeug [pre-commit](https://pre-commit.com):
 ```yaml
 repos:
   - repo: https://github.com/beweiskette/schreibwaechter
-    rev: v0.2.0
+    rev: v0.2.1
     hooks:
       - id: schreibwaechter
         args: [--locale, de-CH]
